@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpaceForWebsite - Contact</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: #fff; color: #111; line-height: 1.6; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* Professional Color Scheme */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #1abc9c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #34495e;
+        }
+
+        /* Navbar */
+        nav { 
+            background: rgba(255, 255, 255, 0.95); 
+            backdrop-filter: blur(10px);
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+            transition: all 0.3s; 
+        }
+        nav.sticky { 
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); 
+            background: rgba(255, 255, 255, 0.98);
+        }
+        .nav-content { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 15px 0; 
+        }
+        .logo { 
+            font-size: 1.5rem; 
+            font-weight: 700; 
+            color: var(--primary); 
+            transition: transform 0.3s;
+        }
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        .nav-links { 
+            display: flex; 
+            list-style: none; 
+        }
+        .nav-links li { 
+            margin-left: 25px; 
+            position: relative;
+        }
+        .nav-links a { 
+            color: var(--text); 
+            font-weight: 500; 
+            padding: 5px 10px; 
+            transition: color 0.3s; 
+            position: relative;
+        }
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+        .nav-links a.active:after, .nav-links a:hover:after { 
+            width: 100%;
+        }
+        .nav-links a.active, .nav-links a:hover { 
+            color: var(--accent); 
+        }
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero { 
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.8), rgba(26, 188, 156, 0.6)); 
+            color: #fff; 
+            text-align: center; 
+            padding: 100px 0; 
+            position: relative;
+            overflow: hidden;
+        }
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTAwMCAxMDAwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0wIDUwMEMwIDIyMy44NTggMjIzLjg1OCAwIDUwMCAwUzEwMDAgMjIzLjg1OCAxMDAwIDUwMFM3NzYuMTQyIDEwMDAgNTAwIDEwMDBTMCA3NzYuMTQyIDAgNTAwWiIgZmlsbD0idXJsKCNncmFkaWVudCkiIGZpbGwtb3BhY2l0eT0iMC4xIj48L3BhdGg+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkaWVudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZjtzdG9wLW9wYWNpdHk6MSIgLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMDA7c3RvcC1vcGFjaXR5OjAiIC8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PC9zdmc+');
+            opacity: 0.1;
+        }
+        .hero h1 { 
+            font-size: 3rem; 
+            margin-bottom: 15px; 
+            opacity: 0; 
+            transform: translateY(30px);
+            transition: all 1s; 
+            color: #fff;
+        }
+        .hero p { 
+            font-size: 1.3rem; 
+            margin-bottom: 30px; 
+            opacity: 0; 
+            transform: translateY(30px);
+            transition: all 1s 0.3s;
+            color: #fff; 
+        }
+        .hero.loaded h1, .hero.loaded p { 
+            opacity: 1; 
+            transform: translateY(0);
+        }
+
+        /* Contact Section */
+        .contact { 
+            padding: 100px 0; 
+            background: rgba(236, 240, 241, 0.5);
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            bottom: -10px;
+            left: 25%;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Contact Content */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        .contact-method {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 25px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        .contact-method:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        .contact-details h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        .contact-details p {
+            color: var(--text);
+            margin-bottom: 5px;
+        }
+        .contact-link {
+            color: var(--accent);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .contact-link:hover {
+            color: var(--secondary);
+        }
+
+        /* Form */
+        .contact-form {
+            background: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--primary);
+            font-weight: 500;
+        }
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--light);
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(26, 188, 156, 0.2);
+        }
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        .submit-btn {
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(26, 188, 156, 0.3);
+        }
+        .submit-btn:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(26, 188, 156, 0.4);
+        }
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
+        .form-status {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 500;
+        }
+        .success {
+            background: rgba(46, 204, 113, 0.1);
+            color: #27ae60;
+            border: 1px solid rgba(46, 204, 113, 0.3);
+        }
+        .error {
+            background: rgba(231, 76, 60, 0.1);
+            color: #e74c3c;
+            border: 1px solid rgba(231, 76, 60, 0.3);
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 100px 0;
+            background: #fff;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        .faq-question {
+            background: var(--light);
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+            color: var(--primary);
+            transition: all 0.3s;
+        }
+        .faq-question:hover {
+            background: rgba(26, 188, 156, 0.1);
+        }
+        .faq-question.active {
+            background: rgba(26, 188, 156, 0.2);
+        }
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: #fff;
+        }
+        .faq-answer.active {
+            padding: 20px;
+            max-height: 500px;
+        }
+        .faq-toggle {
+            transition: transform 0.3s;
+        }
+        .faq-question.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        /* CTA Section */
+        .cta-section { 
+            text-align: center; 
+            padding: 100px 0; 
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.9), rgba(26, 188, 156, 0.8));
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTAwMCAxMDAwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0wIDUwMEMwIDIyMy44NTggMjIzLjg1OCAwIDUwMCAwUzEwMDAgMjIzLjg1OCAxMDAwIDUwMFM3NzYuMTQyIDEwMDAgNTAwIDEwMDBTMCA3NzYuMTQyIDAgNTAwWiIgZmlsbD0idXJsKCNncmFkaWVudCkiIGZpbGwtb3BhY2l0eT0iMC4xIj48L3BhdGg+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkaWVudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZjtzdG9wLW9wYWNpdHk6MSIgLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMDA7c3RvcC1vcGFjaXR5OjAiIC8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PC9zdmc+');
+            opacity: 0.1;
+        }
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta { 
+            display: inline-block; 
+            background: var(--primary); 
+            color: #fff; 
+            padding: 15px 35px; 
+            border-radius: 30px; 
+            transition: all 0.3s; 
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+        .cta:hover { 
+            background: #fff; 
+            color: var(--primary); 
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer { 
+            background: var(--dark); 
+            color: #fff; 
+            padding: 40px 0 20px; 
+            text-align: center; 
+            position: relative;
+            z-index: 10;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+        .footer-links { 
+            display: flex; 
+            justify-content: center; 
+            list-style: none; 
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .footer-links li { 
+            margin: 0 15px; 
+        }
+        .footer-links a {
+            transition: color 0.3s;
+        }
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        .social-icons { 
+            margin: 20px 0; 
+        }
+        .social-icons a { 
+            color: #fff; 
+            margin: 0 15px; 
+            font-size: 1.2rem;
+            transition: all 0.3s; 
+            display: inline-block;
+        }
+        .social-icons a:hover { 
+            color: var(--accent); 
+            transform: translateY(-5px);
+        }
+        .copyright {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #34495e;
+            font-size: 0.9rem;
+            color: #bdc3c7;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+                z-index: 101;
+            }
+            .nav-links { 
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(255, 255, 255, 0.98);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 20px 0;
+                transform: translateX(-100%);
+                opacity: 0;
+                transition: all 0.3s ease;
+                z-index: 100;
+            }
+            .nav-links.active {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            .nav-links li { 
+                margin: 20px 0; 
+            }
+            .nav-links a {
+                font-size: 1.2rem;
+                padding: 10px 20px;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+            }
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .contact-form {
+                padding: 30px 20px;
+            }
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="container nav-content">
+            <div class="logo">SpaceForWebsite</div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Services.html">Services</a></li>
+                <li><a href="Portfolio.html">Portfolio</a></li>
+                <li><a href="Contact.html" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Get In Touch</h1>
+            <p>Let's discuss your project and bring your ideas to life</p>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Contact Us</h2>
+                <p>Reach out for project inquiries or quotes. We're here to help transform your vision into reality.</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-method fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Call Us</h3>
+                            <p>+91 9110687983</p>
+                            <a href="tel:+919110687983" class="contact-link">Call Now</a>
+                        </div>
+                    </div>
+                    <div class="contact-method fade-in">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>WhatsApp</h3>
+                            <p>Quick responses for urgent inquiries</p>
+                            <a href="https://wa.me/9110687983" target="_blank" class="contact-link">Message Us</a>
+                        </div>
+                    </div>
+                    <div class="contact-method fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email Us</h3>
+                            <p>info@spaceforwebsite.com</p>
+                            <a href="mailto:info@spaceforwebsite.com" class="contact-link">Send Email</a>
+                        </div>
+                    </div>
+                    <div class="contact-method fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Visit Us</h3>
+                            <p>Based in India</p>
+                            <p>Available for remote projects worldwide</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form fade-in">
+                    <!-- Replace "your-form-id" with your actual Formspree form ID -->
+                    <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number (Optional)</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter your phone number">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-control" placeholder="What is this regarding?" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" class="form-control" placeholder="Tell us about your project requirements..." required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                        <div id="form-status" class="form-status"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about our services and process</p>
+            </div>
+            <div class="faq-content">
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>How long does a typical website project take?</span>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The timeline depends on the project complexity. A basic website typically takes 2-3 weeks, while more complex projects with custom features may take 4-6 weeks. We'll provide a detailed timeline during our initial consultation.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>Do you provide ongoing support after launch?</span>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer various support packages to ensure your website continues to run smoothly. This includes security updates, performance optimization, and content updates.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>What information do you need to start a project?</span>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We'll need details about your business, target audience, design preferences, and specific functionality requirements. The more information you can provide, the better we can tailor the solution to your needs.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>Do you work with international clients?</span>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! We work with clients from all over the world. Our remote collaboration process is streamlined to ensure smooth communication regardless of location.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="fade-in">Ready to Start Your Project?</h2>
+            <p class="fade-in">Contact us today for a free consultation and quote</p>
+            <a href="tel:+919110687983" class="cta fade-in">Call Now</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">SpaceForWebsite</div>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="Services.html">Services</a></li>
+                    <li><a href="Portfolio.html">Portfolio</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                </ul>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 SpaceForWebsite. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sticky Navbar
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 0) navbar.classList.add('sticky');
+            else navbar.classList.remove('sticky');
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    // Close mobile menu if open
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isActive = question.classList.contains('active');
+                
+                // Close all other FAQs
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    q.classList.remove('active');
+                });
+                document.querySelectorAll('.faq-answer').forEach(a => {
+                    a.classList.remove('active');
+                });
+                
+                // Toggle current FAQ if it wasn't active
+                if (!isActive) {
+                    question.classList.add('active');
+                    answer.classList.add('active');
+                }
+            });
+        });
+
+        // Form Validation and Status Messages
+        const form = document.getElementById('contact-form');
+        const status = document.getElementById('form-status');
+        
+        form.addEventListener('submit', function(e) {
+            // Formspree will handle the submission, but we can add validation
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            // Validation
+            if (!name || !email || !subject || !message) {
+                e.preventDefault();
+                showStatus('Please fill all required fields.', 'error');
+                return;
+            }
+            
+            if (!/\S+@\S+\.\S+/.test(email)) {
+                e.preventDefault();
+                showStatus('Please enter a valid email address.', 'error');
+                return;
+            }
+            
+            // Show loading state
+            const submitBtn = form.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            // Formspree will handle the actual submission
+            // We'll show a success message after form submission
+            // This requires Formspree's redirect or AJAX handling
+        });
+        
+        // Check if form was submitted successfully (using URL parameters)
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('success') === 'true') {
+                showStatus('Message sent successfully! We\'ll get back to you soon.', 'success');
+            } else if (urlParams.get('success') === 'false') {
+                showStatus('Failed to send message. Please try again or contact us directly.', 'error');
+            }
+        });
+        
+        function showStatus(message, type) {
+            status.textContent = message;
+            status.className = 'form-status ' + type;
+            status.style.display = 'block';
+            
+            // Auto-hide success message after 5 seconds
+            if (type === 'success') {
+                setTimeout(() => {
+                    status.style.display = 'none';
+                }, 5000);
+            }
+        }
+
+        // Scroll Animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Trigger hero animations
+            setTimeout(() => {
+                document.querySelector('.hero').classList.add('loaded');
+            }, 300);
+            
+            // Initialize scroll animations
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
