@@ -1,0 +1,1224 @@
+/* src/components/WorkshopsTraining.module.css */
+
+/* ===================================
+   PAGE WRAPPER
+   =================================== */
+
+.pageWrapper {
+  min-height: 100vh;
+  background: rgba(74, 177, 241, 0.08);
+}
+
+/* ===================================
+   HERO SECTION
+   =================================== */
+
+.headerBanner {
+  position: relative;
+  padding: 120px 48px 80px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #0A111F, #0A111F 100%);
+}
+
+.heroBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 0.4;
+}
+
+.heroShape1 {
+  position: absolute;
+  top: -15%;
+  right: -10%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(74, 177, 241, 0.15), transparent 70%);
+  border-radius: 50%;
+  filter: blur(100px);
+  animation: float 25s ease-in-out infinite;
+}
+
+.heroShape2 {
+  position: absolute;
+  bottom: -20%;
+  left: -15%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(42, 245, 152, 0.12), transparent 70%);
+  border-radius: 50%;
+  filter: blur(120px);
+  animation: float 30s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -40px) scale(1.05); }
+  66% { transform: translate(-20px, 20px) scale(0.95); }
+}
+
+.gridPattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(74, 177, 241, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74, 177, 241, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.3;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: rgba(74, 177, 241, 0.12);
+  border: 1px solid rgba(74, 177, 241, 0.25);
+  border-radius: 24px;
+  color: #4AB1F1;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.badgeIcon {
+  font-size: 1.1rem;
+}
+
+.heroTitle {
+  font-size: clamp(2.5rem, 6vw, 4.2rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+.accentWord {
+  background: linear-gradient(135deg, #4AB1F1, #2AF598);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+}
+
+.heroSubtitle {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+  margin-bottom: 40px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Hero Stats */
+.heroStats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(74, 177, 241, 0.15);
+  border-radius: 16px;
+  margin-bottom: 40px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.statNumber {
+  font-size: 2.2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #4AB1F1, #2AF598);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 500;
+}
+
+.statDivider {
+  width: 1px;
+  height: 50px;
+  background: linear-gradient(180deg, transparent, rgba(74, 177, 241, 0.3), transparent);
+}
+
+/* Level Filter */
+.levelFilter {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.levelButton {
+  padding: 12px 28px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(74, 177, 241, 0.2);
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.levelButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(74, 177, 241, 0.15), transparent);
+  transition: left 0.5s ease;
+}
+
+.levelButton:hover::before {
+  left: 100%;
+}
+
+.levelButton:hover {
+  background: rgba(74, 177, 241, 0.1);
+  border-color: rgba(74, 177, 241, 0.35);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.levelButton.active {
+  background: linear-gradient(135deg, rgba(74, 177, 241, 0.18), rgba(42, 245, 152, 0.18));
+  border-color: #4AB1F1;
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+/* ===================================
+   BENEFITS SECTION
+   =================================== */
+
+.benefitsSection {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 48px;
+}
+
+.sectionTitle {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  text-align: center;
+  color: #FFFFFF;
+  margin-bottom: 16px;
+}
+
+.sectionSubtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 48px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.benefitCard {
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(74, 177, 241, 0.12);
+  border-radius: 16px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.benefitCard::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #4AB1F1, #2AF598);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.benefitCard:hover::before {
+  transform: scaleX(1);
+}
+
+.benefitCard:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(74, 177, 241, 0.25);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.benefitIcon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.benefitCard:hover .benefitIcon {
+  transform: scale(1.1);
+}
+
+.benefitTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+}
+
+.benefitDescription {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.6;
+}
+
+/* ===================================
+   WORKSHOPS SECTION
+   =================================== */
+
+.workshopsSection {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 60px 48px 80px;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.workshopsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 32px;
+}
+
+.workshopCard {
+  position: relative;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(74, 177, 241, 0.12);
+  border-radius: 20px;
+  padding: 32px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  transform: translateY(30px);
+  overflow: hidden;
+}
+
+.workshopCard.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.workshopCard:hover {
+  border-color: rgba(74, 177, 241, 0.3);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
+  transform: translateY(-6px);
+}
+
+.workshopCard.featured {
+  border-color: rgba(42, 245, 152, 0.25);
+  background: linear-gradient(135deg, rgba(74, 177, 241, 0.04), rgba(42, 245, 152, 0.04));
+}
+
+.workshopCard.featured:hover {
+  border-color: rgba(42, 245, 152, 0.4);
+}
+
+.featuredBadge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #4AB1F1, #2AF598);
+  color: #0A111F;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(42, 245, 152, 0.3);
+  z-index: 2;
+}
+
+.featuredIcon {
+  font-size: 1rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.iconWrapper {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardIcon {
+  font-size: 3rem;
+  position: relative;
+  z-index: 2;
+}
+
+.iconGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, rgba(74, 177, 241, 0.2), transparent 70%);
+  border-radius: 50%;
+  filter: blur(15px);
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+}
+
+.ratingBadge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  background: rgba(42, 245, 152, 0.12);
+  border: 1px solid rgba(42, 245, 152, 0.25);
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.star {
+  color: #FFD700;
+  font-size: 1rem;
+}
+
+.ratingValue {
+  color: #2AF598;
+  font-size: 0.95rem;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.metaInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+  border: 1px solid rgba(74, 177, 241, 0.08);
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.metaIcon {
+  font-size: 1rem;
+}
+
+.priceSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background: rgba(74, 177, 241, 0.05);
+  border: 1px solid rgba(74, 177, 241, 0.15);
+  border-radius: 10px;
+  margin-bottom: 24px;
+}
+
+.priceTag {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.priceLabel {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.price {
+  font-size: 1.8rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #4AB1F1, #2AF598);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nextBatch {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.batchIcon {
+  font-size: 1.2rem;
+}
+
+.batchDate {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 600;
+}
+
+/* Continue to Part 2... */
+/* ===================================
+   CARD SECTIONS
+   =================================== */
+
+.highlightsSection,
+.topicsSection,
+.skillsSection {
+  margin-bottom: 20px;
+}
+
+.subsectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 12px;
+}
+
+.subsectionIcon {
+  font-size: 1.1rem;
+}
+
+.highlightsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.highlightItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.checkIcon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  background: rgba(42, 245, 152, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2AF598;
+  font-weight: 700;
+  font-size: 0.75rem;
+  margin-top: 2px;
+}
+
+.topicsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.topicTag {
+  padding: 6px 14px;
+  background: rgba(74, 177, 241, 0.08);
+  border: 1px solid rgba(74, 177, 241, 0.2);
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.topicTag:hover {
+  background: rgba(74, 177, 241, 0.15);
+  border-color: rgba(74, 177, 241, 0.35);
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+.skillsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skillBadge {
+  padding: 6px 12px;
+  background: rgba(42, 245, 152, 0.08);
+  border: 1px solid rgba(42, 245, 152, 0.2);
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.skillBadge:hover {
+  background: rgba(42, 245, 152, 0.15);
+  border-color: rgba(42, 245, 152, 0.35);
+  color: #FFFFFF;
+}
+
+.cardFooter {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(74, 177, 241, 0.1);
+}
+
+.participantsInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.participantsIcon,
+.certificateIcon {
+  font-size: 1rem;
+}
+
+.participantsCount,
+.certificateText {
+  font-weight: 500;
+}
+
+.dot {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.registerButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #4AB1F1, #2AF598);
+  color: #0A111F;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(42, 245, 152, 0.25);
+}
+
+.registerButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(42, 245, 152, 0.4);
+}
+
+.buttonArrow {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.registerButton:hover .buttonArrow {
+  transform: translateX(4px);
+}
+
+/* ===================================
+   EMPTY STATE
+   =================================== */
+
+.emptyState {
+  text-align: center;
+  padding: 80px 40px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed rgba(74, 177, 241, 0.2);
+  border-radius: 16px;
+}
+
+.emptyIcon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  opacity: 0.4;
+}
+
+.emptyTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 12px 0;
+}
+
+.emptyText {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 32px 0;
+}
+
+.resetButton {
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #4AB1F1, #2AF598);
+  color: #0A111F;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(42, 245, 152, 0.25);
+}
+
+.resetButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(42, 245, 152, 0.4);
+}
+
+/* ===================================
+   TESTIMONIALS SECTION
+   =================================== */
+
+.testimonialsSection {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 80px 48px;
+}
+
+.testimonialCarousel {
+  position: relative;
+  padding: 40px 20px;
+}
+
+.testimonialCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(74, 177, 241, 0.15);
+  border-radius: 16px;
+  padding: 32px;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.5s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+}
+
+.testimonialCard.activeTestimonial {
+  opacity: 1;
+  transform: scale(1);
+  position: relative;
+  pointer-events: auto;
+}
+
+.testimonialHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.testimonialAvatar {
+  font-size: 3rem;
+  flex-shrink: 0;
+}
+
+.testimonialInfo {
+  flex: 1;
+}
+
+.testimonialName {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 4px 0;
+}
+
+.testimonialRole {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 8px 0;
+}
+
+.testimonialWorkshop {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: #4AB1F1;
+  font-weight: 600;
+}
+
+.workshopIcon {
+  font-size: 1rem;
+}
+
+.testimonialRating {
+  display: flex;
+  gap: 2px;
+}
+
+.ratingStar {
+  color: #FFD700;
+  font-size: 1.2rem;
+}
+
+.testimonialText {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  font-style: italic;
+  margin: 0;
+}
+
+.carouselIndicators {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.indicator {
+  width: 40px;
+  height: 4px;
+  background: rgba(74, 177, 241, 0.2);
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator:hover {
+  background: rgba(74, 177, 241, 0.4);
+}
+
+.indicator.activeIndicator {
+  background: linear-gradient(90deg, #4AB1F1, #2AF598);
+}
+
+/* ===================================
+   CORPORATE CTA SECTION
+   =================================== */
+
+.corporateCta {
+  position: relative;
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 80px 48px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(74, 177, 241, 0.15);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.ctaBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 0.3;
+}
+
+.ctaShape1 {
+  position: absolute;
+  top: -40%;
+  left: -15%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(74, 177, 241, 0.2), transparent 70%);
+  border-radius: 50%;
+  filter: blur(80px);
+}
+
+.ctaShape2 {
+  position: absolute;
+  bottom: -40%;
+  right: -15%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(42, 245, 152, 0.15), transparent 70%);
+  border-radius: 50%;
+  filter: blur(100px);
+}
+
+.ctaContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.ctaBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: rgba(74, 177, 241, 0.12);
+  border: 1px solid rgba(74, 177, 241, 0.25);
+  border-radius: 24px;
+  color: #4AB1F1;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.ctaBadgeIcon {
+  font-size: 1.1rem;
+}
+
+.ctaTitle {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+}
+
+.ctaText {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+  margin: 0 0 32px 0;
+}
+
+.ctaFeatures {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.ctaFeature {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(74, 177, 241, 0.15);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+}
+
+.ctaFeatureIcon {
+  color: #2AF598;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.corporatePrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 36px;
+  background: linear-gradient(135deg, #4AB1F1, #2AF598);
+  color: #0A111F;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(42, 245, 152, 0.3);
+}
+
+.corporatePrimary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 32px rgba(42, 245, 152, 0.45);
+}
+
+.ctaArrow {
+  font-size: 1.3rem;
+  transition: transform 0.3s ease;
+}
+
+.corporatePrimary:hover .ctaArrow {
+  transform: translateX(5px);
+}
+
+.corporateSecondary {
+  display: inline-flex;
+  align-items: center;
+  padding: 16px 36px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(74, 177, 241, 0.3);
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.corporateSecondary:hover {
+  background: rgba(74, 177, 241, 0.1);
+  border-color: #4AB1F1;
+  transform: translateY(-3px);
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+
+@media (max-width: 1200px) {
+  .workshopsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .headerBanner,
+  .benefitsSection,
+  .workshopsSection,
+  .testimonialsSection,
+  .corporateCta {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .heroStats {
+    gap: 20px;
+    padding: 24px 20px;
+  }
+
+  .statNumber {
+    font-size: 1.8rem;
+  }
+
+  .levelFilter {
+    gap: 8px;
+  }
+
+  .levelButton {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .workshopsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .ctaFeatures {
+    grid-template-columns: 1fr;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+  }
+
+  .corporatePrimary,
+  .corporateSecondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .workshopCard {
+    padding: 24px;
+  }
+
+  .cardIcon {
+    font-size: 2.5rem;
+  }
+
+  .featuredBadge {
+    top: 12px;
+    right: 12px;
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
+
+  .price {
+    font-size: 1.5rem;
+  }
+}
+
+/* ===================================
+   ACCESSIBILITY
+   =================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.workshopCard:focus-within,
+.levelButton:focus-visible,
+.registerButton:focus-visible,
+.indicator:focus-visible {
+  outline: 2px solid #4AB1F1;
+  outline-offset: 4px;
+}
+/* src/components/WorkshopsTraining.module.css */
+
+/* ===================================
+   PAGE WRAPPER - TRANSPARENT
+   =================================== */
+
+.pageWrapper {
+  min-height: 100vh;
+  background: transparent; /* Changed from #0A111F */
+}
+
+/* ===================================
+   HERO SECTION - NO BACKGROUND COLOR
+   =================================== */
+
+.headerBanner {
+  position: relative;
+  padding: 120px 48px 80px;
+  overflow: hidden;
+  background: transparent; /* Removed the gradient */
+}
+
+.heroBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* Keep shapes but make them blend better */
+.heroShape1 {
+  position: absolute;
+  top: -15%;
+  right: -10%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(74, 177, 241, 0.12), transparent 70%);
+  border-radius: 50%;
+  filter: blur(100px);
+  animation: float 25s ease-in-out infinite;
+}
+
+.heroShape2 {
+  position: absolute;
+  bottom: -20%;
+  left: -15%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(42, 245, 152, 0.1), transparent 70%);
+  border-radius: 50%;
+  filter: blur(120px);
+  animation: float 30s ease-in-out infinite reverse;
+}
+
+/* Grid pattern */
+.gridPattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(74, 177, 241, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74, 177, 241, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.3;
+}
+
+/* Rest of the styles remain the same... */

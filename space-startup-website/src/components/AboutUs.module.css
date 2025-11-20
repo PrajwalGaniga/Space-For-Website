@@ -1,0 +1,891 @@
+/* src/components/AboutUs.module.css */
+
+/* ===================================
+   PAGE CONTAINER
+   =================================== */
+
+.aboutContainer {
+  min-height: 100vh;
+  background: transparent;
+  position: relative;
+}
+
+/* ===================================
+   HERO BANNER
+   =================================== */
+
+.headerBanner {
+  position: relative;
+  padding: 120px 48px 100px;
+  overflow: hidden;
+  background: transparent;
+}
+
+.heroBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.heroShape1 {
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(74, 177, 241, 0.12), transparent 70%);
+  border-radius: 50%;
+  filter: blur(80px);
+  animation: float 20s ease-in-out infinite;
+}
+
+.heroShape2 {
+  position: absolute;
+  bottom: -15%;
+  left: -10%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(42, 245, 152, 0.1), transparent 70%);
+  border-radius: 50%;
+  filter: blur(100px);
+  animation: float 25s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(30px, -30px); }
+}
+
+.gridPattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(74, 177, 241, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74, 177, 241, 0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.4;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: rgba(74, 177, 241, 0.12);
+  border: 1px solid rgba(74, 177, 241, 0.25);
+  border-radius: 24px;
+  color: #4AB1F1;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.badgeIcon {
+  font-size: 1.1rem;
+}
+
+.heroTitle {
+  font-size: clamp(2.5rem, 6vw, 4.2rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+.accentWord {
+  background: linear-gradient(135deg, #4AB1F1, #2AF598);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroSubtitle {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+  margin-bottom: 56px;
+}
+
+/* Achievement Stats */
+.achievementsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.achievementCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 28px 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(74, 177, 241, 0.15);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.achievementCard:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(74, 177, 241, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.achievementIcon {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+}
+
+.achievementNumber {
+  font-size: 2.2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #4AB1F1, #2AF598);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.achievementLabel {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 500;
+  text-align: center;
+}
+
+/* ===================================
+   SECTION LAYOUTS
+   =================================== */
+
+.section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 80px 48px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.sectionBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(74, 177, 241, 0.1);
+  border: 1px solid rgba(74, 177, 241, 0.2);
+  border-radius: 20px;
+  color: #4AB1F1;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.sectionTitle {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 16px;
+}
+
+.sectionSubtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ===================================
+   STORY SECTION
+   =================================== */
+
+.storySection {
+  background: rgba(255, 255, 255, 0.01);
+  border-radius: 24px;
+}
+
+.storyContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.storyText {
+  padding-right: 20px;
+}
+
+.storyParagraph {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 24px;
+}
+
+.storyHighlight {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 24px;
+  background: rgba(74, 177, 241, 0.05);
+  border-left: 3px solid #4AB1F1;
+  border-radius: 8px;
+  margin-top: 32px;
+}
+
+.highlightIcon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.highlightText {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  font-style: italic;
+  font-weight: 500;
+  margin: 0;
+}
+
+.storyVisual {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.visualCard {
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(74, 177, 241, 0.15);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.visualCard:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(74, 177, 241, 0.3);
+  transform: translateX(8px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.visualTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #4AB1F1, #2AF598);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 12px;
+}
+
+.visualText {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+}
+
+/* ===================================
+   VALUES SECTION
+   =================================== */
+
+.valuesSection {
+  background: transparent;
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+.valueCard {
+  padding: 36px 32px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(74, 177, 241, 0.12);
+  border-radius: 16px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.valueCard::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #4AB1F1, #2AF598);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.valueCard:hover::before {
+  transform: scaleX(1);
+}
+
+.valueCard:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(74, 177, 241, 0.3);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.valueIcon {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.valueCard:hover .valueIcon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.valueTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+}
+
+.valueDescription {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+/* Continue to Part 2... */
+/* ===================================
+   TEAM SECTION
+   =================================== */
+
+.teamSection {
+  background: transparent;
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+}
+
+.teamMemberCard {
+  position: relative;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(74, 177, 241, 0.12);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.teamMemberCard:hover {
+  border-color: rgba(74, 177, 241, 0.3);
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+}
+
+.featuredMember {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.featuredMember .memberImageWrapper {
+  height: 450px;
+}
+
+.featuredBadge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #4AB1F1, #2AF598);
+  color: #0A111F;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 8px;
+  z-index: 3;
+  box-shadow: 0 4px 12px rgba(42, 245, 152, 0.3);
+}
+
+.featuredIcon {
+  font-size: 1rem;
+}
+
+.memberImageWrapper {
+  position: relative;
+  height: 350px;
+  overflow: hidden;
+}
+
+.memberPhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.teamMemberCard:hover .memberPhoto {
+  transform: scale(1.08);
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(10, 17, 31, 0.4) 50%,
+    rgba(10, 17, 31, 0.9) 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 24px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.teamMemberCard:hover .imageOverlay {
+  opacity: 1;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 12px;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: #FFFFFF;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.socialLink:hover {
+  background: linear-gradient(135deg, #4AB1F1, #2AF598);
+  border-color: transparent;
+  transform: translateY(-4px);
+}
+
+.memberContent {
+  padding: 28px;
+}
+
+.memberName {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 6px;
+}
+
+.memberRole {
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #4AB1F1, #2AF598);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 4px;
+}
+
+.memberExpertise {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.memberBio {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 20px;
+}
+
+.memberSkills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skillTag {
+  padding: 6px 14px;
+  background: rgba(74, 177, 241, 0.08);
+  border: 1px solid rgba(74, 177, 241, 0.2);
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.skillTag:hover {
+  background: rgba(74, 177, 241, 0.15);
+  border-color: rgba(74, 177, 241, 0.35);
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+/* ===================================
+   TRUST/WHY CHOOSE US SECTION
+   =================================== */
+
+.trustSection {
+  background: rgba(255, 255, 255, 0.01);
+  border-radius: 24px;
+}
+
+.trustGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+.trustCard {
+  position: relative;
+  padding: 36px 32px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(74, 177, 241, 0.12);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.trustCard:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(74, 177, 241, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.trustNumber {
+  position: absolute;
+  top: -20px;
+  left: 32px;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #4AB1F1, #2AF598);
+  color: #0A111F;
+  font-size: 1.5rem;
+  font-weight: 800;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(42, 245, 152, 0.3);
+}
+
+.trustTitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 20px 0 12px 0;
+}
+
+.trustDescription {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+/* ===================================
+   CTA SECTION
+   =================================== */
+
+.ctaSection {
+  position: relative;
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 80px 48px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(74, 177, 241, 0.15);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.ctaBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 0.3;
+}
+
+.ctaShape1 {
+  position: absolute;
+  top: -40%;
+  left: -15%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(74, 177, 241, 0.2), transparent 70%);
+  border-radius: 50%;
+  filter: blur(80px);
+}
+
+.ctaShape2 {
+  position: absolute;
+  bottom: -40%;
+  right: -15%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(42, 245, 152, 0.15), transparent 70%);
+  border-radius: 50%;
+  filter: blur(100px);
+}
+
+.ctaContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.ctaTitle {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+}
+
+.ctaText {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+  margin: 0 0 32px 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ctaPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 36px;
+  background: linear-gradient(135deg, #4AB1F1, #2AF598);
+  color: #0A111F;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(42, 245, 152, 0.3);
+}
+
+.ctaPrimary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 32px rgba(42, 245, 152, 0.45);
+}
+
+.ctaArrow {
+  font-size: 1.3rem;
+  transition: transform 0.3s ease;
+}
+
+.ctaPrimary:hover .ctaArrow {
+  transform: translateX(5px);
+}
+
+.ctaSecondary {
+  display: inline-flex;
+  align-items: center;
+  padding: 16px 36px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(74, 177, 241, 0.3);
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.ctaSecondary:hover {
+  background: rgba(74, 177, 241, 0.1);
+  border-color: #4AB1F1;
+  transform: translateY(-3px);
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+
+@media (max-width: 1200px) {
+  .featuredMember {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .featuredMember .memberImageWrapper {
+    height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerBanner,
+  .section,
+  .ctaSection {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .achievementsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .storyContent {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .storyText {
+    padding-right: 0;
+  }
+
+  .valuesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .teamGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .memberImageWrapper {
+    height: 320px;
+  }
+
+  .trustGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+  }
+
+  .ctaPrimary,
+  .ctaSecondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .headerBanner {
+    padding: 80px 20px 60px;
+  }
+
+  .achievementsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .achievementCard {
+    padding: 20px 16px;
+  }
+
+  .achievementIcon {
+    font-size: 1.8rem;
+  }
+
+  .achievementNumber {
+    font-size: 1.8rem;
+  }
+
+  .memberImageWrapper {
+    height: 280px;
+  }
+
+  .featuredBadge {
+    top: 12px;
+    right: 12px;
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
+}
+
+/* ===================================
+   ACCESSIBILITY
+   =================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.teamMemberCard:focus-within,
+.valueCard:focus-within,
+.trustCard:focus-within,
+.ctaPrimary:focus-visible,
+.ctaSecondary:focus-visible,
+.socialLink:focus-visible {
+  outline: 2px solid #4AB1F1;
+  outline-offset: 4px;
+}

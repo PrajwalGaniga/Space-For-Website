@@ -1,0 +1,927 @@
+/* src/components/IEEESupport.module.css */
+
+/* ===================================
+   PAGE WRAPPER
+   =================================== */
+
+.pageWrapper {
+  min-height: 100vh;
+  background: transparent;
+  position: relative;
+}
+
+/* ===================================
+   HERO SECTION
+   =================================== */
+
+.headerBanner {
+  position: relative;
+  padding: 120px 48px 80px;
+  overflow: hidden;
+  background: transparent;
+}
+
+.heroBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.heroShape1 {
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(74, 177, 241, 0.12), transparent 70%);
+  border-radius: 50%;
+  filter: blur(80px);
+  animation: float 20s ease-in-out infinite;
+}
+
+.heroShape2 {
+  position: absolute;
+  bottom: -15%;
+  left: -10%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(42, 245, 152, 0.1), transparent 70%);
+  border-radius: 50%;
+  filter: blur(100px);
+  animation: float 25s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(30px, -30px); }
+}
+
+.gridPattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(74, 177, 241, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74, 177, 241, 0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.4;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: rgba(74, 177, 241, 0.12);
+  border: 1px solid rgba(74, 177, 241, 0.25);
+  border-radius: 24px;
+  color: #4AB1F1;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.badgeIcon {
+  font-size: 1.1rem;
+}
+
+.heroTitle {
+  font-size: clamp(2.5rem, 6vw, 4.2rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+.accentWord {
+  background: linear-gradient(135deg, #4AB1F1, #2AF598);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroSubtitle {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+  margin-bottom: 48px;
+}
+
+/* Success Metrics */
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 24px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.metricCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(74, 177, 241, 0.15);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.metricCard:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(74, 177, 241, 0.3);
+  transform: translateY(-4px);
+}
+
+.metricIcon {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.metricValue {
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #4AB1F1, #2AF598);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.metricLabel {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 500;
+  text-align: center;
+}
+
+/* ===================================
+   PHILOSOPHY SECTION
+   =================================== */
+
+.philosophySection {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 48px 60px;
+}
+
+.philosophyGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+}
+
+.philosophyCard {
+  padding: 36px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(74, 177, 241, 0.15);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.philosophyCard:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(74, 177, 241, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.philosophyTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #4AB1F1, #2AF598);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.philosophyList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.philosophyItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.philosophyCheck {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  background: rgba(42, 245, 152, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2AF598;
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-top: 2px;
+}
+
+/* ===================================
+   SECTION LAYOUTS
+   =================================== */
+
+.section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 60px 48px;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.sectionTitle {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 16px;
+}
+
+.sectionSubtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ===================================
+   DOMAINS SECTION
+   =================================== */
+
+.domainGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 28px;
+}
+
+.domainCard {
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(74, 177, 241, 0.12);
+  border-radius: 16px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  transform: translateY(30px);
+  position: relative;
+  overflow: hidden;
+}
+
+.domainCard::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #4AB1F1, #2AF598);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.domainCard:hover::before {
+  transform: scaleX(1);
+}
+
+.domainCard.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.domainCard:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(74, 177, 241, 0.3);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.domainIcon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.domainCard:hover .domainIcon {
+  transform: scale(1.1);
+}
+
+.domainTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+
+.topicsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.topicTag {
+  padding: 6px 14px;
+  background: rgba(74, 177, 241, 0.08);
+  border: 1px solid rgba(74, 177, 241, 0.2);
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.topicTag:hover {
+  background: rgba(74, 177, 241, 0.15);
+  border-color: rgba(74, 177, 241, 0.35);
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+/* Continue to Part 2... */
+/* ===================================
+   METHODOLOGY TIMELINE SECTION
+   =================================== */
+
+.methodologySection {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 48px;
+  background: rgba(255, 255, 255, 0.01);
+  border-radius: 24px;
+}
+
+.timelineWrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.stepCard {
+  position: relative;
+  padding: 28px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(74, 177, 241, 0.12);
+  border-radius: 14px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.stepCard:hover,
+.stepCard.activeStepCard {
+  background: rgba(74, 177, 241, 0.05);
+  border-color: rgba(74, 177, 241, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.stepHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.stepIconWrapper {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  background: rgba(74, 177, 241, 0.1);
+  border: 2px solid rgba(74, 177, 241, 0.25);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.stepCard:hover .stepIconWrapper,
+.stepCard.activeStepCard .stepIconWrapper {
+  background: linear-gradient(135deg, rgba(74, 177, 241, 0.2), rgba(42, 245, 152, 0.2));
+  border-color: #4AB1F1;
+}
+
+.stepIcon {
+  font-size: 1.8rem;
+}
+
+.stepMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stepNumber {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #4AB1F1;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stepDuration {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+}
+
+.stepTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.stepDescription {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.stepIndicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #4AB1F1, #2AF598);
+  border-radius: 0 0 14px 14px;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.totalDuration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px 32px;
+  background: rgba(42, 245, 152, 0.08);
+  border: 1px solid rgba(42, 245, 152, 0.2);
+  border-radius: 12px;
+}
+
+.durationIcon {
+  font-size: 1.5rem;
+}
+
+.durationText {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+.durationText strong {
+  color: #2AF598;
+  font-weight: 700;
+}
+
+/* ===================================
+   TOOLS SECTION
+   =================================== */
+
+.toolsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.toolCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(74, 177, 241, 0.12);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.toolCard:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(74, 177, 241, 0.3);
+  transform: translateY(-2px);
+}
+
+.toolIcon {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+
+.toolInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.toolName {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.toolCategory {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+}
+
+/* ===================================
+   QUALITY STANDARDS SECTION
+   =================================== */
+
+.qualitySection {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 48px;
+}
+
+.qualityGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+.qualityCard {
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(74, 177, 241, 0.12);
+  border-radius: 16px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.qualityCard:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(74, 177, 241, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.qualityIcon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.qualityTitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+}
+
+.qualityDescription {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+/* ===================================
+   SAMPLE SECTION
+   =================================== */
+
+.sampleSection {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 48px;
+}
+
+.sampleGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.samplePlaceholder {
+  aspect-ratio: 16/10;
+  background: rgba(255, 255, 255, 0.02);
+  border: 2px dashed rgba(74, 177, 241, 0.2);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+}
+
+.samplePlaceholder:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(74, 177, 241, 0.35);
+  transform: scale(1.02);
+}
+
+.placeholderIcon {
+  font-size: 3rem;
+  opacity: 0.6;
+}
+
+.placeholderText {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.sampleNote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 24px;
+  background: rgba(74, 177, 241, 0.05);
+  border: 1px solid rgba(74, 177, 241, 0.15);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 500;
+}
+
+.noteIcon {
+  font-size: 1.3rem;
+}
+
+/* ===================================
+   CTA SECTION
+   =================================== */
+
+.ctaSection {
+  position: relative;
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 80px 48px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(74, 177, 241, 0.15);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.ctaBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 0.3;
+}
+
+.ctaShape1 {
+  position: absolute;
+  top: -40%;
+  left: -15%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(74, 177, 241, 0.2), transparent 70%);
+  border-radius: 50%;
+  filter: blur(80px);
+}
+
+.ctaShape2 {
+  position: absolute;
+  bottom: -40%;
+  right: -15%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(42, 245, 152, 0.15), transparent 70%);
+  border-radius: 50%;
+  filter: blur(100px);
+}
+
+.ctaContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.ctaBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: rgba(74, 177, 241, 0.12);
+  border: 1px solid rgba(74, 177, 241, 0.25);
+  border-radius: 24px;
+  color: #4AB1F1;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.ctaBadgeIcon {
+  font-size: 1.1rem;
+}
+
+.ctaTitle {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+}
+
+.ctaText {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+  margin: 0 0 32px 0;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.ctaPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 36px;
+  background: linear-gradient(135deg, #4AB1F1, #2AF598);
+  color: #0A111F;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(42, 245, 152, 0.3);
+}
+
+.ctaPrimary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 32px rgba(42, 245, 152, 0.45);
+}
+
+.ctaArrow {
+  font-size: 1.3rem;
+  transition: transform 0.3s ease;
+}
+
+.ctaPrimary:hover .ctaArrow {
+  transform: translateX(5px);
+}
+
+.ctaSecondary {
+  display: inline-flex;
+  align-items: center;
+  padding: 16px 36px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(74, 177, 241, 0.3);
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.ctaSecondary:hover {
+  background: rgba(74, 177, 241, 0.1);
+  border-color: #4AB1F1;
+  transform: translateY(-3px);
+}
+
+.ctaFootnote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
+
+.footnoteIcon {
+  font-size: 1.1rem;
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+
+@media (max-width: 768px) {
+  .headerBanner,
+  .section,
+  .philosophySection,
+  .methodologySection,
+  .qualitySection,
+  .sampleSection,
+  .ctaSection {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .metricsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .philosophyGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .domainGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .timelineWrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .toolsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .qualityGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .sampleGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+  }
+
+  .ctaPrimary,
+  .ctaSecondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ===================================
+   ACCESSIBILITY
+   =================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.domainCard:focus-within,
+.stepCard:focus-visible,
+.toolCard:focus-visible,
+.ctaPrimary:focus-visible,
+.ctaSecondary:focus-visible {
+  outline: 2px solid #4AB1F1;
+  outline-offset: 4px;
+}

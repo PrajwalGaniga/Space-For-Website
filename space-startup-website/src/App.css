@@ -1,0 +1,304 @@
+/* src/App.css */
+
+/* ===================================
+   GLOBAL CONTAINER & BACKGROUND
+   =================================== */
+
+.container {
+  min-height: 100vh;
+  background: 
+    radial-gradient(
+      circle at 20% 10%,
+      rgba(74, 177, 241, 0.08),
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 90%,
+      rgba(42, 245, 152, 0.12),
+      transparent 50%
+    ),
+    #0A111F;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Subtle animated gradient overlay for depth */
+.container::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(74, 177, 241, 0.03),
+    transparent 40%
+  );
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+/* ===================================
+   MAIN CONTENT AREA
+   =================================== */
+
+.main-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 0 16px;
+  }
+}
+
+/* ===================================
+   LOADING STATE
+   =================================== */
+
+.page-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 20px;
+}
+
+.loader-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(74, 177, 241, 0.2);
+  border-top-color: #4AB1F1;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.page-loader p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+
+/* ===================================
+   404 NOT FOUND PAGE
+   =================================== */
+
+.not-found-page {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px;
+}
+
+.not-found-content {
+  text-align: center;
+  max-width: 600px;
+}
+
+.not-found-content h1 {
+  font-size: clamp(6rem, 15vw, 12rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, #4AB1F1, #2AF598);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.not-found-content h2 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: #FFFFFF;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.not-found-content p {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.back-home-btn {
+  display: inline-block;
+  padding: 14px 32px;
+  background: linear-gradient(135deg, #4AB1F1, #2AF598);
+  color: #0A111F;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-size: 1rem;
+}
+
+.back-home-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(74, 177, 241, 0.3);
+}
+
+/* ===================================
+   PROFESSIONAL SPACING & RHYTHM
+   =================================== */
+
+section {
+  padding: 80px 0;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 60px 0;
+  }
+}
+
+/* ===================================
+   SMOOTH SCROLL BEHAVIOR
+   =================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for modern browsers */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A111F;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #4AB1F1, #2AF598);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #3A9FD8, #25E087);
+}
+
+/* ===================================
+   ACCESSIBILITY & FOCUS STATES
+   =================================== */
+
+*:focus-visible {
+  outline: 2px solid #4AB1F1;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ===================================
+   RESPONSIVE UTILITIES
+   =================================== */
+
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #4AB1F1, #2AF598);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+/* src/App.css */
+
+.container {
+  min-height: 100vh;
+  /* Single unified background - no color breaks */
+  background: #0A111F;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Subtle gradient overlay that spans the ENTIRE page */
+.container::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(
+      circle at 20% 10%,
+      rgba(74, 177, 241, 0.08),
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 90%,
+      rgba(42, 245, 152, 0.12),
+      transparent 50%
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Main content area */
+.main-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 0 16px;
+  }
+}
+
+/* Remove any background from main tag */
+main {
+  width: 100%;
+  margin: 0 auto;
+  background: transparent !important;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A111F;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #4AB1F1, #2AF598);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #3A9FD8, #25E087);
+}
+
+/* Accessibility */
+*:focus-visible {
+  outline: 2px solid #4AB1F1;
+  outline-offset: 3px;
+  border-radius: 4px;
+}

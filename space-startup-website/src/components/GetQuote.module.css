@@ -1,0 +1,1092 @@
+/* src/components/GetQuote.module.css */
+
+/* ===================================
+   PAGE WRAPPER
+   =================================== */
+
+.pageWrapper {
+  min-height: 100vh;
+  background: transparent;
+  position: relative;
+}
+
+/* ===================================
+   HERO BANNER
+   =================================== */
+
+.headerBanner {
+  position: relative;
+  padding: 120px 48px 60px;
+  overflow: hidden;
+  background: transparent;
+}
+
+.heroBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.heroShape1 {
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(74, 177, 241, 0.12), transparent 70%);
+  border-radius: 50%;
+  filter: blur(80px);
+  animation: float 20s ease-in-out infinite;
+}
+
+.heroShape2 {
+  position: absolute;
+  bottom: -15%;
+  left: -10%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(42, 245, 152, 0.1), transparent 70%);
+  border-radius: 50%;
+  filter: blur(100px);
+  animation: float 25s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(30px, -30px); }
+}
+
+.gridPattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(74, 177, 241, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74, 177, 241, 0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.4;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: rgba(74, 177, 241, 0.12);
+  border: 1px solid rgba(74, 177, 241, 0.25);
+  border-radius: 24px;
+  color: #4AB1F1;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.badgeIcon {
+  font-size: 1.1rem;
+}
+
+.heroTitle {
+  font-size: clamp(2.5rem, 6vw, 4.2rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+.accentWord {
+  background: linear-gradient(135deg, #4AB1F1, #2AF598);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroSubtitle {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+  margin-bottom: 48px;
+}
+
+/* ===================================
+   PROGRESS BAR
+   =================================== */
+
+.progressContainer {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.progressBar {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #4AB1F1, #2AF598);
+  border-radius: 10px;
+  transition: width 0.4s ease;
+  box-shadow: 0 0 10px rgba(42, 245, 152, 0.5);
+}
+
+.progressSteps {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.progressStep {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.4;
+  transition: all 0.3s ease;
+}
+
+.progressStep.activeStep {
+  opacity: 1;
+}
+
+.progressStep.currentStep .stepNumber {
+  background: linear-gradient(135deg, #4AB1F1, #2AF598);
+  color: #0A111F;
+  transform: scale(1.1);
+  box-shadow: 0 4px 16px rgba(42, 245, 152, 0.4);
+}
+
+.stepNumber {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(74, 177, 241, 0.3);
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.progressStep.activeStep .stepNumber {
+  border-color: #4AB1F1;
+  color: #FFFFFF;
+}
+
+.stepLabel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.3s ease;
+}
+
+.progressStep.activeStep .stepLabel {
+  color: #FFFFFF;
+}
+
+/* ===================================
+   FORM CONTAINER
+   =================================== */
+
+.quoteFormContainer {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 48px 80px;
+}
+
+.quoteForm {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(74, 177, 241, 0.15);
+  border-radius: 20px;
+  padding: 48px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* ===================================
+   FORM STEPS
+   =================================== */
+
+.formStep {
+  animation: fadeInUp 0.5s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stepHeader {
+  margin-bottom: 36px;
+  text-align: center;
+}
+
+.stepTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+}
+
+.stepIcon {
+  font-size: 2.2rem;
+}
+
+.stepSubtitle {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.6;
+}
+
+/* ===================================
+   FORM ELEMENTS
+   =================================== */
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formGroup.fullWidth {
+  grid-column: 1 / -1;
+}
+
+.formLabel {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.required {
+  color: #FF6B6B;
+  font-weight: 700;
+}
+
+.optional {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+.formInput,
+.formSelect,
+.formTextarea {
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(74, 177, 241, 0.2);
+  border-radius: 10px;
+  color: #FFFFFF;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.formInput:focus,
+.formSelect:focus,
+.formTextarea:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: #4AB1F1;
+  box-shadow: 0 0 0 3px rgba(74, 177, 241, 0.1);
+}
+
+.formInput::placeholder,
+.formTextarea::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.formSelect {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%234AB1F1' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  padding-right: 40px;
+}
+
+.formSelect option {
+  background: #0A111F;
+  color: #FFFFFF;
+}
+
+.formTextarea {
+  resize: vertical;
+  min-height: 140px;
+  line-height: 1.6;
+}
+
+.inputError {
+  border-color: #FF6B6B !important;
+}
+
+.errorMessage {
+  font-size: 0.85rem;
+  color: #FF6B6B;
+  font-weight: 500;
+  margin-top: -4px;
+}
+
+.charCount {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: right;
+}
+
+/* ===================================
+   PRICE ESTIMATE
+   =================================== */
+
+.priceEstimate {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  background: linear-gradient(135deg, rgba(74, 177, 241, 0.1), rgba(42, 245, 152, 0.1));
+  border: 1px solid rgba(74, 177, 241, 0.25);
+  border-radius: 12px;
+  animation: slideIn 0.4s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.estimateIcon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.estimateContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.estimateLabel {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+.estimateValue {
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #4AB1F1, #2AF598);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===================================
+   FILE UPLOAD
+   =================================== */
+
+.fileUploadArea {
+  position: relative;
+  border: 2px dashed rgba(74, 177, 241, 0.3);
+  border-radius: 12px;
+  padding: 32px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.fileUploadArea:hover {
+  border-color: #4AB1F1;
+  background: rgba(74, 177, 241, 0.05);
+}
+
+.fileInput {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.uploadPlaceholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.uploadIcon {
+  font-size: 3rem;
+  opacity: 0.6;
+}
+
+.uploadText {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  margin: 0;
+}
+
+.uploadSubtext {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.uploadedFile {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: rgba(42, 245, 152, 0.1);
+  border: 1px solid rgba(42, 245, 152, 0.25);
+  border-radius: 10px;
+}
+
+.fileIcon {
+  font-size: 2.5rem;
+  flex-shrink: 0;
+}
+
+.fileInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: left;
+}
+
+.fileName {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  word-break: break-word;
+}
+
+.fileSize {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.removeFile {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 107, 107, 0.2);
+  border: 1px solid rgba(255, 107, 107, 0.3);
+  border-radius: 50%;
+  color: #FF6B6B;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.removeFile:hover {
+  background: rgba(255, 107, 107, 0.3);
+  transform: scale(1.1);
+}
+
+/* Continue to Part 2... */
+/* ===================================
+   REVIEW CONTAINER
+   =================================== */
+
+.reviewContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.reviewSection {
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(74, 177, 241, 0.1);
+  border-radius: 12px;
+}
+
+.reviewTitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(74, 177, 241, 0.15);
+}
+
+.reviewGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.reviewItem {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.reviewItem.fullWidth {
+  grid-column: 1 / -1;
+}
+
+.reviewLabel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.reviewValue {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.priceEstimateLarge {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 32px;
+  background: linear-gradient(135deg, rgba(74, 177, 241, 0.12), rgba(42, 245, 152, 0.12));
+  border: 2px solid rgba(74, 177, 241, 0.3);
+  border-radius: 16px;
+}
+
+.estimateIconLarge {
+  font-size: 3.5rem;
+  flex-shrink: 0;
+}
+
+.estimateContentLarge {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.estimateLabelLarge {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+}
+
+.estimateValueLarge {
+  font-size: 2.2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #4AB1F1, #2AF598);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+
+.estimateNote {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
+}
+
+/* ===================================
+   NAVIGATION BUTTONS
+   =================================== */
+
+.formNavigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(74, 177, 241, 0.1);
+}
+
+.navSpacer {
+  flex: 1;
+}
+
+.navButton,
+.navButtonPrimary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.navButton {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(74, 177, 241, 0.25);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.navButton:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #4AB1F1;
+  transform: translateX(-2px);
+}
+
+.navButtonPrimary {
+  background: linear-gradient(135deg, rgba(74, 177, 241, 0.2), rgba(42, 245, 152, 0.2));
+  border: 1px solid #4AB1F1;
+  color: #FFFFFF;
+}
+
+.navButtonPrimary:hover {
+  background: linear-gradient(135deg, rgba(74, 177, 241, 0.3), rgba(42, 245, 152, 0.3));
+  transform: translateX(2px);
+  box-shadow: 0 4px 16px rgba(74, 177, 241, 0.3);
+}
+
+.navArrow {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.navButton:hover .navArrow {
+  transform: translateX(-2px);
+}
+
+.navButtonPrimary:hover .navArrow {
+  transform: translateX(2px);
+}
+
+.submitButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 40px;
+  background: linear-gradient(135deg, #4AB1F1, #2AF598);
+  color: #0A111F;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(42, 245, 152, 0.3);
+}
+
+.submitButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(42, 245, 152, 0.4);
+}
+
+.submitButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(10, 17, 31, 0.3);
+  border-top-color: #0A111F;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.submitArrow {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.formDisclaimer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 20px;
+  background: rgba(74, 177, 241, 0.05);
+  border: 1px solid rgba(74, 177, 241, 0.15);
+  border-radius: 10px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 24px;
+  text-align: center;
+}
+
+.disclaimerIcon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+/* ===================================
+   SUCCESS PAGE
+   =================================== */
+
+.successContainer {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 80px 48px;
+  text-align: center;
+}
+
+.successAnimation {
+  margin-bottom: 40px;
+  animation: bounceIn 0.8s ease;
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.checkmarkCircle {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, rgba(74, 177, 241, 0.2), rgba(42, 245, 152, 0.2));
+  border: 3px solid #2AF598;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 32px rgba(42, 245, 152, 0.3);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.checkmark {
+  font-size: 4rem;
+  color: #2AF598;
+  font-weight: 700;
+  animation: checkmarkPop 0.5s ease 0.3s both;
+}
+
+@keyframes checkmarkPop {
+  0% { transform: scale(0); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.successTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 16px;
+}
+
+.successMessage {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 40px;
+}
+
+.successMessage strong {
+  color: #2AF598;
+  font-weight: 700;
+}
+
+.successDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 28px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(74, 177, 241, 0.15);
+  border-radius: 16px;
+  margin-bottom: 32px;
+}
+
+.successInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+}
+
+.successIcon {
+  font-size: 1.3rem;
+}
+
+.successActions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.whatsappBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 36px;
+  background: #25D366;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+}
+
+.whatsappBtn:hover {
+  background: #20BA5A;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.4);
+}
+
+.whatsappIcon {
+  font-size: 1.3rem;
+}
+
+.resetBtn {
+  padding: 14px 36px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(74, 177, 241, 0.25);
+  color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.resetBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #4AB1F1;
+  transform: translateY(-2px);
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+
+@media (max-width: 768px) {
+  .headerBanner,
+  .quoteFormContainer {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .progressSteps {
+    gap: 8px;
+  }
+
+  .stepNumber {
+    width: 36px;
+    height: 36px;
+    font-size: 0.95rem;
+  }
+
+  .stepLabel {
+    font-size: 0.75rem;
+  }
+
+  .quoteForm {
+    padding: 32px 24px;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .stepTitle {
+    font-size: 1.6rem;
+  }
+
+  .stepIcon {
+    font-size: 1.8rem;
+  }
+
+  .formNavigation {
+    flex-direction: column-reverse;
+  }
+
+  .navSpacer {
+    display: none;
+  }
+
+  .navButton,
+  .navButtonPrimary,
+  .submitButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .reviewGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .priceEstimate,
+  .priceEstimateLarge {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .estimateValueLarge {
+    font-size: 1.8rem;
+  }
+
+  .successContainer {
+    padding: 60px 24px;
+  }
+
+  .checkmarkCircle {
+    width: 100px;
+    height: 100px;
+  }
+
+  .checkmark {
+    font-size: 3rem;
+  }
+
+  .successTitle {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .headerBanner {
+    padding: 80px 20px 50px;
+  }
+
+  .quoteForm {
+    padding: 24px 20px;
+  }
+
+  .stepNumber {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+
+  .stepLabel {
+    display: none;
+  }
+
+  .formInput,
+  .formSelect,
+  .formTextarea {
+    padding: 12px 16px;
+  }
+
+  .uploadPlaceholder {
+    padding: 20px;
+  }
+
+  .uploadIcon {
+    font-size: 2.5rem;
+  }
+
+  .uploadText {
+    font-size: 0.9rem;
+  }
+
+  .estimateIconLarge {
+    font-size: 2.5rem;
+  }
+
+  .estimateValueLarge {
+    font-size: 1.5rem;
+  }
+
+  .checkmarkCircle {
+    width: 80px;
+    height: 80px;
+  }
+
+  .checkmark {
+    font-size: 2.5rem;
+  }
+}
+
+/* ===================================
+   ACCESSIBILITY
+   =================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.formInput:focus-visible,
+.formSelect:focus-visible,
+.formTextarea:focus-visible,
+.navButton:focus-visible,
+.navButtonPrimary:focus-visible,
+.submitButton:focus-visible,
+.whatsappBtn:focus-visible,
+.resetBtn:focus-visible {
+  outline: 2px solid #4AB1F1;
+  outline-offset: 4px;
+}
